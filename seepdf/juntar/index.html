@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEEPDF - Juntar PDFs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>
+        // Configura o worker do PDF.js (necessário para funcionar)
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    </script>
+</head>
+<body>
+    <header>
+        <h1>SEEPDF</h1>
+        <p>Junte seus arquivos PDF de forma fácil e rápida!</p>
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <h2>Juntar PDFs</h2>
+            <div class="drop-area" id="dropArea">
+                <p>Arraste e solte seus PDFs aqui ou clique para selecionar</p>
+                <input type="file" id="fileInput" accept=".pdf" multiple style="display: none;">
+                <button id="selectFilesBtn">Selecionar Arquivos</button>
+            </div>
+            
+            <div class="file-list-container">
+                <h3>Arquivos Selecionados (Arraste para reordenar)</h3>
+                <ul id="fileList" class="file-list"></ul>
+                <button id="removeAllPdfsBtn" class="remove-all-button" style="display: none;">Remover Todos os PDFs</button>
+            </div>
+
+            <button id="mergePdfBtn" disabled>Juntar PDFs</button>
+            <p id="message" class="message"></p>
+        </section>
+
+        <section class="result-section" id="resultSection" style="display: none;">
+            <h2>Seu PDF para Download</h2>
+            <a id="downloadLink" href="#" download="seepdf_arquivo.pdf" class="download-button">Baixar PDF</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SEEPDF. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

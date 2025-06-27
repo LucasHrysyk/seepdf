@@ -1,0 +1,252 @@
+/* Estilos Globais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Fundo mais suave */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 1.5em 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin: 0.5em 0 0;
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+main.home-main {
+    flex-grow: 1;
+    max-width: 1000px; /* Largura um pouco maior para a home */
+    margin: 3em auto;
+    padding: 0 1.5em;
+    text-align: center; /* Centraliza conteúdo principal */
+}
+
+/* Seção de Destaque (Hero Section) */
+.hero-section {
+    background-color: white;
+    padding: 4em 2em;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin-bottom: 3em;
+}
+
+.hero-section h2 {
+    color: #007bff;
+    font-size: 2.5em;
+    margin-bottom: 0.6em;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 1.3em;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 2em auto;
+}
+
+/* Contêiner para os botões de CTA */
+.cta-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os botões */
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+}
+
+/* Botão de Chamada para Ação (CTA Button) - Estilo Base */
+.cta-button {
+    display: inline-block;
+    padding: 18px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Botão de Chamada para Ação (CTA Button) - Estilo Primário */
+.cta-button.primary {
+    background-color: #28a745; /* Verde para a ação principal */
+    color: white;
+}
+
+.cta-button.primary:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+}
+
+/* Botão de Chamada para Ação (CTA Button) - Estilo Secundário */
+.cta-button.secondary {
+    background-color: #007bff; /* Azul para a ação secundária */
+    color: white;
+}
+
+.cta-button.secondary:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+}
+
+/* Botão de Chamada para Ação (CTA Button) - Estilo Terciário (Novo) */
+.cta-button.tertiary {
+    background-color: #ffc107; /* Amarelo/Laranja para a terceira ação */
+    color: #333; /* Texto escuro para contraste */
+}
+
+.cta-button.tertiary:hover {
+    background-color: #e0a800;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(255, 193, 7, 0.4);
+}
+
+
+/* Seção de Recursos (Features) */
+.features-section {
+    background-color: white;
+    padding: 3em 2em;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+
+.features-section h3 {
+    color: #007bff;
+    font-size: 2em;
+    margin-bottom: 1.5em;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+    text-align: left; /* Texto dentro das features alinhado à esquerda */
+}
+
+.feature-item {
+    background-color: #f7f9fc;
+    padding: 1.8em;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #e0e6ed;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.feature-item h4 {
+    color: #007bff;
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 0.8em;
+}
+
+.feature-item p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 2em 0;
+    margin-top: auto;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+    header p {
+        font-size: 1em;
+    }
+    main.home-main {
+        margin: 2em auto;
+        padding: 0 1em;
+    }
+    .hero-section {
+        padding: 3em 1.5em;
+    }
+    .hero-section h2 {
+        font-size: 2em;
+    }
+    .hero-section p {
+        font-size: 1.1em;
+    }
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1.2em;
+    }
+    .features-section {
+        padding: 2.5em 1.5em;
+    }
+    .features-section h3 {
+        font-size: 1.8em;
+    }
+    .feature-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+    .feature-item {
+        padding: 1.5em;
+    }
+    .feature-item h4 {
+        font-size: 1.3em;
+    }
+    .cta-buttons-container {
+        flex-direction: column; /* Botões um abaixo do outro em telas menores */
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.6em;
+    }
+    header p {
+        font-size: 0.9em;
+    }
+    .hero-section {
+        padding: 2em 1em;
+    }
+    .hero-section h2 {
+        font-size: 1.8em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+    .features-section {
+        padding: 2em 1em;
+    }
+    .features-section h3 {
+        font-size: 1.6em;
+    }
+}

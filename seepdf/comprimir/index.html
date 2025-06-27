@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEEPDF - Comprimir PDF</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>
+        // Configura o worker do PDF.js (necessário para funcionar)
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    </script>
+</head>
+<body>
+    <header>
+        <h1>SEEPDF</h1>
+        <p>Comprima seus arquivos PDF!</p>
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <h2>Comprimir PDF</h2>
+            <div class="drop-area" id="dropArea">
+                <p>Arraste e solte seu PDF aqui ou clique para selecionar</p>
+                <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+                <button id="selectFileBtn">Selecionar PDF</button>
+            </div>
+            
+            <div class="pdf-info-container" id="pdfInfoContainer" style="display: none;">
+                <h3>PDF Carregado: <span id="pdfFileName"></span></h3>
+                <p>Tamanho Original: <span id="fileSizeOriginal">0 KB</span></p>
+                <div class="thumbnail-preview-main" id="thumbnailPreviewMain">
+                    </div>
+                <button id="removePdfBtn" class="remove-button">Remover PDF</button>
+            </div>
+
+            <div class="compress-options-container" id="compressOptionsContainer" style="display: none;">
+                <h3>Opções de Compressão:</h3>
+                <div class="option-group">
+                    <label for="imageQuality">Qualidade da Imagem (Impacta mais na compressão):</label>
+                    <input type="range" id="imageQuality" min="0.1" max="1.0" step="0.1" value="0.8">
+                    <span id="imageQualityValue">80%</span>
+                    <p class="input-hint">Valores menores resultam em menor qualidade e menor tamanho.</p>
+                </div>
+                
+                <button id="compressPdfBtn" disabled>Comprimir PDF</button>
+                <p id="message" class="message"></p>
+            </div>
+        </section>
+
+        <section class="result-section" id="resultSection" style="display: none;">
+            <h2>PDF Comprimido</h2>
+            <div class="result-details">
+                <p>Tamanho Comprimido: <span id="fileSizeCompressed">0 KB</span></p>
+                <p>Redução de Tamanho: <span id="reductionPercentage">0%</span></p>
+            </div>
+            <div id="downloadLinksContainer" class="download-grid">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SEEPDF. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

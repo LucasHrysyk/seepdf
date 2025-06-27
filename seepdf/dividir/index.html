@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEEPDF - Dividir PDF</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>
+        // Configura o worker do PDF.js (necessário para funcionar)
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    </script>
+</head>
+<body>
+    <header>
+        <h1>SEEPDF</h1>
+        <p>Divida seus arquivos PDF com precisão!</p>
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <h2>Dividir PDF</h2>
+            <div class="drop-area" id="dropArea">
+                <p>Arraste e solte seu PDF aqui ou clique para selecionar</p>
+                <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+                <button id="selectFileBtn">Selecionar PDF</button>
+            </div>
+            
+            <div class="pdf-info-container" id="pdfInfoContainer" style="display: none;">
+                <h3>PDF Carregado: <span id="pdfFileName"></span></h3>
+                <p>Total de páginas: <span id="pdfTotalPages"></span></p>
+                <div class="thumbnail-preview-main" id="thumbnailPreviewMain">
+                    </div>
+                <button id="removePdfBtn" class="remove-button">Remover PDF</button>
+            </div>
+
+            <div class="split-options-container" id="splitOptionsContainer" style="display: none;">
+                <h3>Opções de Divisão:</h3>
+                <div class="option-group">
+                    <label>
+                        <input type="radio" name="splitMethod" value="allPages" checked>
+                        Dividir por cada página (Ex: 1-1, 2-2, 3-3)
+                    </label>
+                </div>
+                <div class="option-group">
+                    <label>
+                        <input type="radio" name="splitMethod" value="pageRanges">
+                        Dividir por intervalos de páginas:
+                    </label>
+                    <input type="text" id="pageRangesInput" placeholder="Ex: 1-5, 8, 10-12" disabled>
+                    <p class="input-hint">Use vírgulas para separar intervalos (Ex: 1-5, 8, 10-12).</p>
+                    <p class="input-hint">Páginas devem ser numéricas e sequenciais (Ex: 1-5 é válido, 5-1 não).</p>
+                </div>
+                
+                <button id="splitPdfBtn" disabled>Dividir PDF</button>
+                <p id="message" class="message"></p>
+            </div>
+        </section>
+
+        <section class="result-section" id="resultSection" style="display: none;">
+            <h2>Seus PDFs Divididos</h2>
+            <div id="downloadLinksContainer" class="download-grid">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SEEPDF. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
